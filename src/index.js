@@ -3,7 +3,7 @@ const express = require('express');
 const expressConfig = require("./config/expressConfig")
 const handlebarsConfig = require("./config/handlebarsConfig")
 const { PORT } = require("./constants");
-
+const routes = require('./router')
 //local variables 
 const app = express();
 
@@ -15,8 +15,6 @@ expressConfig(app)
 
 
 //Routing
-app.get("/", (req, res) => {
-    res.render("index");
-});
+app.use(routes);
 
 app.listen(PORT, () => console.log(`Server is running on ${PORT}`))
