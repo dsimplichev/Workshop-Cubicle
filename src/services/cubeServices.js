@@ -3,10 +3,8 @@ const uniqid = require("uniqid");
 const cubes = [];
 
 exports.create = (cubeData) => {
-    const id = uniqid();
-    console.log({id});
     const newCube = {
-        id,
+        id: uniqid()
         ...cubeData,
     };
        
@@ -15,6 +13,12 @@ exports.create = (cubeData) => {
     return newCube
     
 };
-exports.getAll = () => {
-    return [...cubes];
+exports.getAll = (search, from, to) => {
+    let filterCubes = [...cubes];
+
+    if(search) {
+        filterCubes = filterCubes.filter((cube) => {
+            
+        })
+    }
 };
