@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const cubeService = require("../services/cubeServices");
+const cubeServices = require("../services/cubeServices");
 const accessoryService = require("../services/accessoryService");
 
 router.get("/create", (req, res) => {
@@ -9,7 +9,7 @@ router.get("/create", (req, res) => {
 router.post("/create", async (req, res) => {
   const { name, description, imageUrl, difficultyLevel } = req.body;
 
-  await cubeService.create({
+  await cubeServices.create({
     name,
     description,
     imageUrl,
@@ -20,7 +20,7 @@ router.post("/create", async (req, res) => {
 
 router.get("/:cubeId/details", async (req, res) => {
   const { cubeId } = req.params;
-  const cube = await cubeService.getSingleCube(cubeId).lean();
+  const cube = await cubeServices.getSingleCube(cubeId).lean();
 
   if (!cube) {
     res.redirect("/404");
