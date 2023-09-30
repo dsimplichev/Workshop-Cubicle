@@ -7,15 +7,15 @@ router.get('/create', (req, res) =>{
 });
 
 router.post("/create", async (req, res) => {
-    const { name, discription, imageUrl, difficultylevel} = req.body; 
+    const { name, discription, imageUrl, difficultyLevel} = req.body; 
     
     cubeServices.create({
         name,
         discription,
         imageUrl,
-        difficultylevel: Number(difficultylevel),
+        difficultyLevel: Number(difficultyLevel),
     });
-    console.log(req.body)
+    
     res.redirect("/");
 });
 
@@ -27,6 +27,6 @@ router.get("/:cubeId/details", (req, res) =>{
         res.redirect("/404");
         return;
     }
-    res.render("details", {...cube});
+    res.render("details", { cube });
 })
 module.exports = router;
