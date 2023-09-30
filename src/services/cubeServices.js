@@ -1,5 +1,5 @@
 
-const Cube = require("./../models/cube");
+const Cube = require("../models/cube");
 const cubes = [];
 
 exports.create = async (cubeData) => {

@@ -11,3 +11,4 @@ router.post("/create", async (req, res) =>{
     await accessoryService.create({ name, description, imageUrl });
     res.redirect("/");
 });
+module.exports = router;
